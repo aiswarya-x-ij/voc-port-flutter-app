@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 class AppTheme {
   // VOC Port Authority Brand Colors
   static const Color vocNavy = Color(0xFF1A237E);       // Deep navy - primary

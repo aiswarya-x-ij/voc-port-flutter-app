@@ -25,7 +25,7 @@ class VocPortApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'VOC Port - Truck Movement & Geofencing System',
+      title: 'VOC Port - Truck Movement Monitoring System',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       initialRoute: '/splash',

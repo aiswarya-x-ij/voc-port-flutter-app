@@ -53,7 +53,7 @@ class VocPortLogo extends StatelessWidget {
                 ),
               ),
               Text(
-                'Truck Movement & Geofencing System',
+                'Truck Movement Monitoring System',
                 style: TextStyle(
                   fontSize: size * 0.2,
                   fontWeight: FontWeight.w400,

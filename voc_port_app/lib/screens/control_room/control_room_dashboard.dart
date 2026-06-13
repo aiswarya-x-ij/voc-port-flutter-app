@@ -39,34 +39,38 @@ class _ControlRoomDashboardState extends State<ControlRoomDashboard>
   @override
   Widget build(BuildContext context) {
     final appState = context.watch<AppState>();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+  if (appState.alerts.isNotEmpty) {
+    final latestAlert = appState.alerts.first;
+
+    if (latestAlert.type.toString().contains('congestion')) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('🚨 Congestion Alert'),
+          content: Text(latestAlert.message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+});
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 80,
         backgroundColor: AppTheme.vocNavy,
-        automaticallyImplyLeading: false,
         title: Row(
           children: [
-            Container(
-              width: 38,
-              height: 38,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Center(
-                child: Image.asset('assets/images/voc_logo_symbol.png', fit: BoxFit.contain),
-              ),
-            ),
-            const SizedBox(width: 12),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('V.O.C. Port Authority - Control Room',
-                    style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w700)),
-                Text('Truck Movement & Geofencing Command Center',
-                    style: TextStyle(color: Colors.white60, fontSize: 10)),
-              ],
-            ),
+             Image.asset('assets/images/voc_logo_full.png',
+             height:70,
+             fit: BoxFit.contain),
+            
           ],
         ),
         actions: [

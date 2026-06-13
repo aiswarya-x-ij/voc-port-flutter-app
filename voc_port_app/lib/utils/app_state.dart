@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import '../models/models.dart';
 import '../repositories/mock_repositories.dart';
+import '../services/api_service.dart';
 
 class AppState extends ChangeNotifier {
   DriverModel? _currentDriver;
@@ -54,7 +55,7 @@ class AppState extends ChangeNotifier {
       mobileNumber: mobileNumber,
       password: password,
     );
-    final registered = await MockDriverRepository.register(driver);
+    final registered = driver;
     _currentDriver = registered;
     await _loadDriverAlerts(driverId);
     _setLoading(false);
@@ -135,4 +136,27 @@ class AppState extends ChangeNotifier {
     _activeTrucks = [];
     notifyListeners();
   }
+  void generateCongestionAlert({
+  required String location,
+  required int truckCount,
+}) {
+  final alert = AlertModel(
+    id: DateTime.now().millisecondsSinceEpoch.toString(),
+    type: AlertType.congestion,
+    message:
+        'High congestion detected near $location - $truckCount trucks in queue',
+    truckId: 'SYSTEM',
+    timestamp: DateTime.now(),
+  );
+
+  _alerts.insert(0, alert);
+  notifyListeners();
+}
+
+void testCongestion() {
+  generateCongestionAlert(
+    location: 'Coal Jetty I',
+    truckCount: 8,
+  );
+}
 }

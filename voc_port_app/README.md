@@ -1,11 +1,11 @@
-# VOC Port Authority - Truck Movement & Geofencing System
+# VOC Port Authority - Truck Movement Monitoring System
 ## Flutter Frontend
 
 ---
 
 ## Project Overview
 
-Complete Flutter frontend for the V.O.C. Port Authority Truck Movement & Geofencing System.
+Complete Flutter frontend for the V.O.C. Port Authority Truck Movement Monitoring System.
 Built with Flutter Material 3, clean architecture, and mock data layer ready for backend integration.
 
 ---

@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                       color: Colors.white.withOpacity(0.08),
                     ),
                     child: const Text(
-                      'Truck Movement & Geofencing System',
+                      'Truck Movement Monitoring System',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14,

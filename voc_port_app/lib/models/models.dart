@@ -1,5 +1,5 @@
 // ============================================================
-// MODELS - VOC Port Truck Movement & Geofencing System
+// MODELS - VOC Port Truck Movement Monitoring System
 // ============================================================
 
 class DriverModel {
